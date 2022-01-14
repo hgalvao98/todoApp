@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import { Draggable } from 'react-beautiful-dnd';
+import styled from 'styled-components'
 
-export default function TodoItem({ todo, getTodos, i }) {
+export default function TodoItem({ todo, getTodos }) {
 
     const deleteTodo = async () => {
         await axios.delete(`http://localhost:5000/${todo.id}`)
@@ -10,21 +10,21 @@ export default function TodoItem({ todo, getTodos, i }) {
         getTodos();
     }
 
+    const Teste = styled.div`
+        background-color:red;
+        height:100px;
+        width:100px;
+        border-radius:15px;
+        margin:10px;
+        h1{
+            color:white;
+        }
+    `
+
     return (
-        <Draggable key={todo.id} index={todo[i]} draggableId={todo.id}>
-            {(provided) => {
-                return (
-                    <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                    >
-                        {todo.message}
-                    </div>
-                )
-            }}
-            {/* <h1>{todo.message}</h1>
-            <button onClick={deleteTodo}>X</button> */}
-        </Draggable>
+        <div>
+            <h1>{todo.message}</h1>
+            <button onClick={deleteTodo}>X</button>
+        </div>
     )
 }
