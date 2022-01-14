@@ -5,10 +5,9 @@ export const Content = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:flex-start;
-    margin:8em;
     padding:1em 2em 3em;
     height:min-content;
-    min-width:fit-content;
+    margin:10vw;
     background: #282828;
     border-radius:12px;
     border: 7px solid #282828;

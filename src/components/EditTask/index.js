@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Main } from './styles'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Close from '@material-ui/icons/Close'
+import { Main } from './styles'
+import { Button, TextField } from '@material-ui/core'
 
 export default function EditTask({ todo, getTodos, handleOpen }) {
 
@@ -39,13 +40,15 @@ export default function EditTask({ todo, getTodos, handleOpen }) {
         handleOpen(false)
     }
 
-    // console.log(todo)
-
     return (
         <Main onClick={handleSubmit}>
-            <button type="button" onClick={handleClose}><Close /></button>
-            <input name="task" onChange={(e) => { setTask(e.target.value) }} type="text" label="Edit your new task" required />
-            <button type='submit'>send</button>
+            <TextField InputLabelProps={{
+                style: {
+                    color: 'white'
+                }
+            }} InputProps={{ style: { color: 'white' } }} name="task" onChange={(e) => { setTask(e.target.value) }} type="text" label="Edit your task" required />
+            <Button variant="contained" size="small" type='submit' style={{ color: 'white' }}>Edit</Button>
+            <Button variant="contained" size="small" type="button" onClick={handleClose}><Close style={{ color: 'white' }} /></Button>
         </Main >
     )
 }
