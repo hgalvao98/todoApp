@@ -1,3 +1,11 @@
+# Todo App
+
+To test it clone the repo, run: 
+### `npm install`
+and then 
+### `npm run dev`
+to run both Back-End and Front-End simultaneously
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
